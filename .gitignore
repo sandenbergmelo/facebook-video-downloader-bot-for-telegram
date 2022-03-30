@@ -1,0 +1,9 @@
+config.json
+*.zip
+
+# Dependency directories
+node_modules/
+jspm_packages/
+package-lock.json
+yarn.lock
+yarn-error.log

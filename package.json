@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "fb-downloader": "^1.0.0",
     "telegraf": "^4.7.0"
   },

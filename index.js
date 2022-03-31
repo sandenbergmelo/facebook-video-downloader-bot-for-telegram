@@ -1,10 +1,8 @@
 import { Telegraf } from 'telegraf'
 import fbDownloader from 'fb-downloader'
+import 'dotenv/config'
 
-import { readFile } from 'fs/promises';
-const token = JSON.parse(await readFile('./config.json', 'utf8')).token
-
-const bot = new Telegraf(token)
+const bot = new Telegraf(process.env.TOKEN)
 
 bot.start((ctx) => ctx.reply('Welcome!'))
 

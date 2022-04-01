@@ -8,9 +8,8 @@ bot.start((ctx) => ctx.reply('Welcome!'))
 
 bot.on('text', (ctx) => {
     const url = ctx.message.text
-    const pattern = /^https:\/\//i
 
-    if (pattern.test(url)) {
+    if (/^https:\/\//i.test(url)) {
         ctx.reply('Downloading...').then(() => {
             fbDownloader(url)
                 .then((videoInfos) => {

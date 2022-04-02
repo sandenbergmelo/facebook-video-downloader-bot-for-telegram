@@ -1,33 +1,19 @@
 import { Telegraf } from 'telegraf'
-import fbDownloader from 'fb-downloader'
+import getFBInfo from 'fb-downloader'
 import 'dotenv/config'
 
 const bot = new Telegraf(process.env.TOKEN)
 
 bot.start((ctx) => ctx.reply('Welcome!'))
 
-bot.on('text', (ctx) => {
+bot.on('text', async (ctx) => {
     const url = ctx.message.text
 
     if (/^https:\/\//i.test(url)) {
-        ctx.reply('Downloading...').then(() => {
-            fbDownloader(url)
-                .then((videoInfos) => {
-                    const video = {
-                        quality: videoInfos.hd,
-                        title: `${videoInfos.title}.mp4`,
-                    }
+        ctx.reply('Downloading...')
+        const video = await getFBInfo(url)
 
-                    if (!videoInfos.hd) {
-                        video.quality = videoInfos.sd
-                    }
-
-                    ctx.replyWithVideo({
-                        url: video.quality,
-                        filename: video.title
-                    })
-                })
-        })
+        ctx.replyWithVideo({url: video.sd})
     }
 })
 

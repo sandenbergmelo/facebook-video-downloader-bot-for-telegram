@@ -5,6 +5,7 @@ config.json
 node_modules/
 jspm_packages/
 .env
+.ENV
 package-lock.json
 yarn.lock
 yarn-error.log

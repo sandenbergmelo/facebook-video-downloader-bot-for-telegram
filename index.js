@@ -12,7 +12,7 @@ bot.on('text', async (ctx) => {
     if (/^https:\/\//i.test(url)) {
         ctx.reply('Downloading...')
         const video = await getFBInfo(url)
-        ctx.replyWithVideo({url: video.sd})
+        ctx.replyWithVideo({ url: video.sd })
     }
 })
 

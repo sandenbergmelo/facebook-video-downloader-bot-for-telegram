@@ -1,6 +1,6 @@
 {
   "name": "facebook-video-downloader-bot-for-telegram",
-  "module": "index.js",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.ts",

@@ -16,24 +16,14 @@ How to get a bot token:
 4. Follow the instructions
 5. Copy the token and paste it in the `.env` file
 
-Install dependencies:
+Install dependencies (using [Bun](https://bun.sh/)):
+
 ```bash
-# Using bun
 bun install
 ```
-```bash
-# Using npm
-npm install
-```
 
-
-To run:
+Run:
 
 ```bash
-# Using bun
 bun dev
-```
-```bash
-# Using npm
-npm run dev
 ```

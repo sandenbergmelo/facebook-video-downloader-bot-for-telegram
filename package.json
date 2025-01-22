@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "start": "bun src/index.ts"
+    "start": "bun src/index.ts",
+    "lint": "bun --bun eslint ."
   },
   "devDependencies": {
-    "@rocketseat/eslint-config": "^2.2.2",
+    "@rocketseat/eslint-config": "^3.0.12",
     "@types/bun": "latest",
-    "eslint": "^8.57.0"
+    "eslint": "^9.18.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

@@ -1,4 +1,5 @@
 import getFbVideoInfo from 'fb-downloader-scrapper'
+import { decode } from 'html-entities'
 import { Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
 import { env } from './env'
@@ -16,7 +17,11 @@ bot.on(message('text'), async (ctx) => {
 
   try {
     const video = await getFbVideoInfo(url)
-    await ctx.replyWithVideo(video.hd || video.sd)
+
+    const videoUrl = video.hd || video.sd
+    const videoTitle = decode(video.title)
+
+    await ctx.replyWithVideo(videoUrl, { caption: videoTitle })
   } catch (err) {
     console.log(err)
     await ctx.reply('Error while trying to download the video')

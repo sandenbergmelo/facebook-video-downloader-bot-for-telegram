@@ -1,4 +1,4 @@
-import getFbVideoInfo from 'fb-downloader-scrapper'
+import { getFbVideoInfo } from 'fb-downloader-scrapper'
 import { Bot } from 'grammy'
 import { decode } from 'html-entities'
 import { env } from './env'

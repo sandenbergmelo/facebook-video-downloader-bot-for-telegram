@@ -10,15 +10,15 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^3.0.12",
     "@types/bun": "latest",
-    "eslint": "^9.18.0"
+    "eslint": "^9.26.0"
   },
   "peerDependencies": {
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "fb-downloader-scrapper": "^2.0.0",
-    "html-entities": "^2.5.2",
-    "telegraf": "^4.16.3",
-    "zod": "^3.24.1"
+    "fb-downloader-scrapper": "^3.0.1",
+    "grammy": "^1.36.1",
+    "html-entities": "^2.6.0",
+    "zod": "^3.24.4"
   }
 }

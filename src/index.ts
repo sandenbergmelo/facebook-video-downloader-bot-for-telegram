@@ -1,15 +1,14 @@
-import getFbVideoInfo from 'fb-downloader-scrapper'
+import { getFbVideoInfo } from 'fb-downloader-scrapper'
+import { Bot } from 'grammy'
 import { decode } from 'html-entities'
-import { Telegraf } from 'telegraf'
-import { message } from 'telegraf/filters'
 import { env } from './env'
 
-const bot = new Telegraf(env.BOT_TOKEN)
+const bot = new Bot(env.BOT_TOKEN)
 
-bot.start((ctx) => ctx.reply('Welcome!'))
+bot.command('start', (ctx) => ctx.reply('Welcome!'))
 
-bot.on(message('text'), async (ctx) => {
-  const url = ctx.message.text
+bot.on('message', async (ctx) => {
+  const url = ctx.message.text ?? ''
 
   if (!/^https:\/\//i.test(url)) return
 
@@ -28,11 +27,11 @@ bot.on(message('text'), async (ctx) => {
   }
 })
 
-bot.telegram.getMe().then((botInfos) => {
+bot.api.getMe().then((botInfos) => {
   console.log(`Bot "${botInfos.first_name}" is running 🚀`)
 })
 
-bot.launch()
+bot.start()
 
-process.once('SIGINT', () => bot.stop('SIGINT'))
-process.once('SIGTERM', () => bot.stop('SIGTERM'))
+process.once('SIGINT', () => bot.stop())
+process.once('SIGTERM', () => bot.stop())

@@ -7,10 +7,8 @@ const bot = new Bot(env.BOT_TOKEN)
 
 bot.command('start', (ctx) => ctx.reply('Welcome!'))
 
-bot.on('message', async (ctx) => {
-  const url = ctx.message.text ?? ''
-
-  if (!/^https:\/\//i.test(url)) return
+bot.on('message:entities:url', async (ctx) => {
+  const url = ctx.message.text
 
   await ctx.reply('Downloading...')
 
